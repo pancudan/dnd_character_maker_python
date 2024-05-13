@@ -51,7 +51,10 @@ def calculate_hp(character_class, constitution_modifier, level):
         "Wizard": 6,
         "Blood Hunter": 10
     }
-    return hit_dice[character_class] + constitution_modifier * level
+    total_hp = 0
+    for _ in range(level):
+        total_hp += random.randint(1, hit_dice[character_class]) + constitution_modifier
+    return total_hp
 
 
 def calculate_armor_class(dexterity_modifier, armor_type=None):
